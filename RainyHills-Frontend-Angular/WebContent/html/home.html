@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Rainy Hills</title>
+<link rel="stylesheet" type="text/css" href="css/rainyHills.css">
+</head>
+<body>
+	<div class="main">
+		<div class="title">Rainy Hills</div>
+
+		<div class="divPanel">
+			<fieldset class="input">
+				<legend>Input the hills' height values separated by comma:</legend>
+				<input type="text" name="txtHillsHeight" ng-model="hillsHeight"
+					class="text">
+				<button ng-click="calc(hillsHeight)" class="button">Calculate</button>
+			</fieldset>
+		</div>
+
+		<div class="divPanel">
+			<fieldset class="message">
+				<legend>Error Message:</legend>
+				&nbsp; {{surface.message}}
+			</fieldset>
+		</div>
+
+		<div class="divPanel">
+			<fieldset class="message">
+				<legend>Statistics:</legend>
+				<table>
+					<tr>
+						<th>Total Water Volume</th>
+						<th>Hills Count</th>
+						<th>Processing Steps</th>
+						<th>Time Elapsed(ms)</th>
+						<th>Time Elapsed(ns)</th>
+					</tr>
+					<tr>
+						<td>{{surface.waterVolume}}</td>
+						<td>{{surface.hillsCount}}</td>
+						<td>{{surface.processSteps}}</td>
+						<td>{{surface.timeElapsedMilli}}</td>
+						<td>{{surface.timeElapsedNano}}</td>
+					</tr>
+				</table>
+				
+			</fieldset>
+		</div>
+
+		<div class="divPanel">
+			<fieldset class="message">
+				<legend>Hills list:</legend>
+				<table border="1">
+					<tr>
+						<th>Index</th>
+						<th>Height</th>
+						<th>Water Volume</th>
+					</tr>
+					<tr ng-repeat="hill in surface.hills | orderBy:'index':false track by hill.index">
+						<td>{{hill.index}}</td>
+						<td>{{hill.height}}</td>
+						<td>{{hill.waterVolume}}</td>
+					</tr>
+				</table>
+			</fieldset>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
