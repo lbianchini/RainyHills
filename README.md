@@ -9,18 +9,18 @@ The picture below is a simple draft of the architecture used:
 
 The tests and frontend were intentionaly build in two separated applications for the following reasons: 
 
-Tests: Run tests outside the main project as a integrated test consuming the REST Services and asserting its results as a external consumer.
+* Tests: Run tests outside the main project as a integrated test consuming the REST Services and asserting its results as a external consumer.
 
-Frontend: Show the decoupling of project, frontend independent, shows the possibility do either front and backend be deployed in separated servers, the possibility to be scaled independently, and shows the backend services as a single entry point for business logic.
+* Frontend: Show the decoupling of project, frontend independent, shows the possibility do either front and backend be deployed in separated servers, the possibility to be scaled independently, and shows the backend services as a single entry point for business logic.
 
 The framework used in this application were: 
-JavaEE 7
-JDK 1.8
-Dozer 5.5.1
-Jackson Databind 2.9.0
-RESTAssured 3.0.3
-Glassfish 4.1 Embedded by Cargo Plugin
-Angular 2 for Frontend
+- JavaEE 7
+- JDK 1.8
+- Dozer 5.5.1
+- Jackson Databind 2.9.0
+- RESTAssured 3.0.3
+- Glassfish 4.1 Embedded by Cargo Plugin
+- Angular 2 for Frontend
 
 ## Water Volume calculation algorithm
 The algorithm implemented to calculate the water volume has a linear order of growth performing a single iteration on the array of integer used as input. It iterates on array of integer from both sides(left and right), starting from left, to determine the highest hill from each side.
