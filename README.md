@@ -8,7 +8,9 @@ The picture below is a simple draft of the architecture used:
 <IMAGE>
 
 The tests and frontend were intentionaly build in two separated applications for the following reasons: 
+
 Tests: Run tests outside the main project as a integrated test consuming the REST Services and asserting its results as a external consumer.
+
 Frontend: Show the decoupling of project, frontend independent, shows the possibility do either front and backend be deployed in separated servers, the possibility to be scaled independently, and shows the backend services as a single entry point for business logic.
 
 The framework used in this application were: 
