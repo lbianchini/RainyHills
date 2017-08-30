@@ -5,7 +5,8 @@ This application intends to calculate the water volume between hills after a rai
 
 The architecture and technologies used were intended to be as simple and light as possible.
 The picture below is a simple draft of the architecture used:
-RainyHills/RainyHills/RainyHills - Diagram.png
+
+https://github.com/lbianchini/RainyHills/blob/master/RainyHills/RainyHills%20-%20Diagram.png?raw=true
 
 The tests and frontend were intentionaly build in two separated applications for the following reasons: 
 
