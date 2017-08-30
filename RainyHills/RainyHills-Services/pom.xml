@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.rainyhills</groupId>
+		<artifactId>RainyHills</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<groupId>com.rainyhills.services</groupId>
+	<artifactId>RainyHills-Services</artifactId>
+	<packaging>war</packaging>
+	<name>RainyHills-Services</name>
+	<description>This module is part of Rainy Hills Application and is responsible to expose the services and for all business logic regarding the application.</description>
+	
+	<dependencies>
+		<!-- Modules dependencies -->
+		<dependency>
+			<groupId>com.rainyhills.api</groupId>
+			<artifactId>RainyHills-API</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		
+		<!-- Frameworks dependencies -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaee.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+			</plugin>
+
+			<!-- Cargo plugin used to embbeded Glassfish within project -->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>${cargo.maven2.plugin.version}</version>
+				<configuration>
+					<container>
+						<containerId>glassfish4x</containerId>
+						<zipUrlInstaller>
+							<url>http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip</url>
+						</zipUrlInstaller>
+					</container>
+					<deployables>
+						<deployable>
+							<groupId>com.rainyhills.services</groupId>
+							<artifactId>RainyHills-Services</artifactId>
+							<type>war</type>
+							<properties>
+								<context>/RainyHills-Services</context>
+							</properties>
+						</deployable>
+					</deployables>
+					<configuration>
+						<properties>
+							<cargo.servlet.port>8080</cargo.servlet.port>
+							<cargo.glassfish.admin.port>4881</cargo.glassfish.admin.port>
+						</properties>
+					</configuration>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
