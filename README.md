@@ -27,7 +27,7 @@ The framework used in this application were:
 The algorithm implemented to calculate the water volume has a linear order of growth performing a single iteration on the array of integer used as input. It iterates on array of integer from both sides(left and right), starting from left, to determine the highest hill from each side.
 
 A stress test was performed using JMeter just to exemplify the performance of consuming the REST Service responsible for this calculation:
-<IMAGE>
+![RainyHills](https://github.com/lbianchini/RainyHills/blob/master/RainyHills/RainyHills-StressTest.PNG?raw=true)
 
 100000 requests were performed with an average of 5ms per request and a throughput of 1852 requests per second.
 
