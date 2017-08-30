@@ -1,7 +1,7 @@
 # RainyHills Application
 This application intends to calculate the water volume between hills after a rain. It receives an array of integer as input, representing the hills height values.
 
-#Architecture and technologies used
+# Architecture and technologies used
 
 The architecture and technologies used were intended to be as simple and light as possible.
 The picture below is a simple draft of the architecture used:
