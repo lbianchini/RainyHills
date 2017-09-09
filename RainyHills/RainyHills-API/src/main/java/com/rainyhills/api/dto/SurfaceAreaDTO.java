@@ -3,6 +3,7 @@ package com.rainyhills.api.dto;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,13 +25,14 @@ public class SurfaceAreaDTO implements Serializable {
 	private Integer processSteps;
 	private Long timeElapsedMilli;
 	private Long timeElapsedNano;
-	private String message;
+	private String message = "none";
 	
 	/**
 	 * Get the hills height values separated by comma.
 	 * 
 	 * @return String
 	 */
+	@XmlElement
 	public String getHillsHeight() {
 		return hillsHeight;
 	}
@@ -58,6 +60,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return
 	 */
+	@XmlElement
 	public Integer getHillsCount() {
 		return this.hillsCount;
 	}
@@ -67,6 +70,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return List<HillDtoOutput>
 	 */
+	@XmlElement
 	public List<HillDTO> getHills() {
 		return hills;
 	}
@@ -86,6 +90,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return Integer
 	 */
+	@XmlElement
 	public Integer getWaterVolume() {
 		return waterVolume;
 	}
@@ -104,6 +109,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return
 	 */
+	@XmlElement
 	public Integer getProcessSteps() {
 		return processSteps;
 	}
@@ -122,6 +128,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return
 	 */
+	@XmlElement
 	public Long getTimeElapsedMilli() {
 		return timeElapsedMilli;
 	}
@@ -140,6 +147,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return
 	 */
+	@XmlElement
 	public Long getTimeElapsedNano() {
 		return timeElapsedNano;
 	}
@@ -158,6 +166,7 @@ public class SurfaceAreaDTO implements Serializable {
 	 * 
 	 * @return String
 	 */
+	@XmlElement(defaultValue="None")
 	public String getMessage() {
 		return message;
 	}

@@ -92,13 +92,17 @@ public class RainyHillsController {
 	 */
 	private SurfaceArea calculateWaterVolume(SurfaceArea surfaceArea) {
 
+		if(surfaceArea.getHillsCount() < 3) {
+			return surfaceArea;
+		}
+		
 		//Initializing variables used to calculate water volume.
 		Integer surfaceAreaWaterVolume = 0;
-		Integer highestLeftHillHeight = 0;
-		Integer highestRightHillHeight = 0;
-		Integer leftIndex = 0;
-		Integer rightIndex = surfaceArea.getHillsCount() - 1;
-
+		Integer highestLeftHillHeight = surfaceArea.getHillByIndex(0).getHeight();
+		Integer highestRightHillHeight = surfaceArea.getHillByIndex(surfaceArea.getHillsCount() - 1).getHeight();
+		Integer leftIndex = 1;
+		Integer rightIndex = surfaceArea.getHillsCount() - 2;
+		
 		//Iterating the list of hills from both sides(left and right) 
 		//to determine the highest hill from each side.
 		while (leftIndex <= rightIndex) {
@@ -108,25 +112,15 @@ public class RainyHillsController {
 			Hill leftHill = surfaceArea.getHillByIndex(leftIndex);
 			Hill rightHill = surfaceArea.getHillByIndex(rightIndex);
 
-			if (leftHill.getHeight() < rightHill.getHeight()) {
-				if (leftHill.getHeight() > highestLeftHillHeight) {
-					highestLeftHillHeight = leftHill.getHeight();
-				} else {
-					leftHill.setWaterVolume(highestLeftHillHeight - leftHill.getHeight());
-					surfaceAreaWaterVolume += leftHill.getWaterVolume();
-				}
-
+			if (highestLeftHillHeight <= highestRightHillHeight) {
+				highestLeftHillHeight = Math.max(highestLeftHillHeight, leftHill.getHeight());
+				leftHill.setWaterVolume(highestLeftHillHeight - leftHill.getHeight());
+				surfaceAreaWaterVolume += leftHill.getWaterVolume();
 				leftIndex++;
-
 			} else {
-
-				if (rightHill.getHeight() > highestRightHillHeight) {
-					highestRightHillHeight = rightHill.getHeight();
-				} else {
-					rightHill.setWaterVolume(highestRightHillHeight - rightHill.getHeight());
-					surfaceAreaWaterVolume += rightHill.getWaterVolume();
-				}
-
+				highestRightHillHeight = Math.max(highestRightHillHeight, rightHill.getHeight());
+				rightHill.setWaterVolume(highestRightHillHeight - rightHill.getHeight());
+				surfaceAreaWaterVolume += rightHill.getWaterVolume();
 				rightIndex--;
 			}
 		}

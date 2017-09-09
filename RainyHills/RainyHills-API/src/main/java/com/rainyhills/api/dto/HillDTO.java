@@ -2,6 +2,7 @@ package com.rainyhills.api.dto;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,6 +26,7 @@ public class HillDTO implements Serializable {
 	 * 	
 	 * @return Integer
 	 */
+	@XmlElement
 	public Integer getIndex() {
 		return index;
 	}
@@ -43,6 +45,7 @@ public class HillDTO implements Serializable {
 	 * 
 	 * @return Integer
 	 */
+	@XmlElement
 	public Integer getHeight() {
 		return height;
 	}
@@ -61,6 +64,7 @@ public class HillDTO implements Serializable {
 	 * 
 	 * @return Integer
 	 */
+	@XmlElement
 	public Integer getWaterVolume() {
 		return waterVolume;
 	}
